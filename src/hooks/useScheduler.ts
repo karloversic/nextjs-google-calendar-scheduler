@@ -1,42 +1,41 @@
 'use client';
 
 import { useState, useCallback } from 'react';
+import { UseSchedulerReturn } from '../types/scheduler.types';
 
-export const useScheduler = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+/**
+ * Custom hook for managing scheduler modal state
+ * Handles open/close states, loading states, and error handling
+ */
+export const useScheduler = (): UseSchedulerReturn => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-    const openScheduler = useCallback(() => {
-        try {
-            setError(null);
-            setIsOpen(true);
-            console.log('Scheduler modal opened successfully');
-        } catch (err) {
-            const errorMessage = 'Failed to open scheduler modal';
-            console.error(errorMessage, err);
-            setError(errorMessage);
-        }
-    }, []);
+  const openScheduler = useCallback(() => {
+    setError(null);
+    setIsLoading(true);
+    setIsOpen(true);
+  }, []);
 
-    const closeScheduler = useCallback(() => {
-        try {
-            setIsOpen(false);
-            setError(null);
-            console.log('Scheduler modal closed successfully');
-        } catch (err) {
-            console.error('Error closing scheduler modal:', err);
-        }
-    }, []);
+  const closeScheduler = useCallback(() => {
+    setIsOpen(false);
+    setIsLoading(false);
+    setError(null);
+  }, []);
 
-    const clearError = useCallback(() => {
-        setError(null);
-    }, []);
+  const clearError = useCallback(() => {
+    setError(null);
+  }, []);
 
-    return {
-        isOpen,
-        error,
-        openScheduler,
-        closeScheduler,
-        clearError
-    };
+  return {
+    isOpen,
+    isLoading,
+    error,
+    openScheduler,
+    closeScheduler,
+    clearError,
+    setIsLoading,
+    setError,
+  };
 };
