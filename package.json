@@ -1,0 +1,44 @@
+{
+  "name": "nextjs-google-calendar-scheduler",
+  "version": "1.0.0",
+  "description": "A lightweight, plug-and-play Next.js component for seamless Google Calendar appointment scheduling",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "dev": "cd example && npm run dev",
+    "build": "cd example && npm run build",
+    "lint": "cd example && npm run lint",
+    "example:install": "cd example && npm install",
+    "setup": "npm install && npm run example:install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karloversic/nextjs-google-calendar-scheduler.git"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "google-calendar",
+    "scheduler",
+    "appointment",
+    "booking",
+    "typescript",
+    "tailwindcss"
+  ],
+  "author": "karloversic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karloversic/nextjs-google-calendar-scheduler/issues"
+  },
+  "homepage": "https://github.com/karloversic/nextjs-google-calendar-scheduler#readme",
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0",
+    "next": ">=13.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0"
+  }
+}
